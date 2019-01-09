@@ -1,0 +1,38 @@
+﻿@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@model IEnumerable<StaffManagementMicroservice.Models.StaffPermissions>
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Add Permissions</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeFullName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Permissions)
+            </td>
+            <td>
+                <a asp-action="Add" asp-route-id="@item.Permissions">Add</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
