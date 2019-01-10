@@ -34,7 +34,7 @@ namespace StaffManagementMicroservice
             services.AddTransient<DBService, DBService>();
             services.AddScoped<IStaffService, FakeStaffService>();
             services.AddScoped<IStaffService, StaffService>();
-
+            //
             HttpClient httpClient = new HttpClient();
             services.AddSingleton<HttpClient>(httpClient);
 
