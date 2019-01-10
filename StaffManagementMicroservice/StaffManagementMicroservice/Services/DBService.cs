@@ -42,7 +42,7 @@ namespace StaffManagementMicroservice.Services
         {
             if (0 == _context.StaffPermissions.Count())
                 return null;
-            var AllStaff = _context.StaffPermissions.Where(x => x.StaffID != null).ToList();
+            var AllStaff = _context.StaffPermissions.Where(x => x.StaffID != 0).ToList();
 
             var filteredStaff = AllStaff.Select(s => new {s.StaffID
                  ,s.EmployeeFullName }).Distinct().ToList();

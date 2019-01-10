@@ -81,7 +81,7 @@ namespace StaffManagementMicroservice.Controllers
 
         public async Task<IActionResult> Add(int StaffID, string Permissions)
         {
-            if (StaffID == null)
+            if (StaffID == 0)
                 return NotFound();
 
             var staffPermissions = _context.GetStaffAllfPermissions(StaffID);
