@@ -41,16 +41,15 @@ namespace StaffManagementMicroservice.Controllers
 
         public async Task<IActionResult> AddPermissions(int StaffID)
         {
-            if (StaffID == null)
-                return NotFound();
-
             var AvailablePermissons = _staffPermissons;
             var staffPerms = _context.GetStaffAllfPermissions(StaffID);
 
 
             foreach (var perm in staffPerms)
                 AvailablePermissons = AvailablePermissons.Where(x => !x.Permissions.Equals(perm.Permissions)).ToList();
-           
+
+            AvailablePermissons = AvailablePermissons.Select(s => { s.StaffID = StaffID; return s; }).ToList();
+
             if (AvailablePermissons == null)
                 return NotFound();
 
@@ -84,9 +83,7 @@ namespace StaffManagementMicroservice.Controllers
             if (StaffID == 0)
                 return NotFound();
 
-            var staffPermissions = _context.GetStaffAllfPermissions(StaffID);
-            if (staffPermissions == null)
-                return NotFound();
+            _context.AddPermission(StaffID,Permissions);
 
             return RedirectToAction("Index");
         }  
