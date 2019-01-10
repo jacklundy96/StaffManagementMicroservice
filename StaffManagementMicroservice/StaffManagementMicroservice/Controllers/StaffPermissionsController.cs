@@ -31,7 +31,6 @@ namespace StaffManagementMicroservice.Controllers
             _staffPermissons.Add(new StaffPermissions() { StaffID = -1, Permissions = "View customer Information", EmployeeFullName = "Default" });
         }
 
-        //GET: StaffPermissions
         public async Task<IActionResult> Index()
         {
             var staff = _context.GetAllStaff();
