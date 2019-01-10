@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using StaffManagementMicroservice.DB;
-using StaffManagementMicroservice.Models;
+using StaffManagementMicroservice.DTOS;
 using StaffManagementMicroservice.Services;
 
 namespace StaffManagementMicroservice.Controllers

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using StaffManagementMicroservice.Models;
+using StaffManagementMicroservice.DTOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace StaffManagementMicroservice.DB
         {
         }
 
-        public DbSet<Models.StaffPermissions> StaffPermissions { get; set; }
+        public DbSet<StaffPermissions> StaffPermissions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

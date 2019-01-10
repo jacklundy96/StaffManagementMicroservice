@@ -1,6 +1,6 @@
 using System;
 
-namespace StaffManagementMicroservice.Models
+namespace StaffManagementMicroservice.DTOS
 {
     public class ErrorViewModel
     {

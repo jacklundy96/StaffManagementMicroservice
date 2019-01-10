@@ -1,5 +1,5 @@
 ﻿using StaffManagementMicroservice.DB;
-using StaffManagementMicroservice.Models;
+using StaffManagementMicroservice.DTOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
