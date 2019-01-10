@@ -32,7 +32,11 @@ namespace StaffManagementMicroservice
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<DBService, DBService>();
-            services.AddHttpClient<HttpClient>();
+            services.AddScoped<IStaffService, FakeStaffService>();
+            services.AddScoped<IStaffService, StaffService>();
+
+            HttpClient httpClient = new HttpClient();
+            services.AddSingleton<HttpClient>(httpClient);
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -52,6 +56,7 @@ namespace StaffManagementMicroservice
         {
             if (env.IsDevelopment())
             {
+
                 app.UseDeveloperExceptionPage();
             }
             else

@@ -15,14 +15,16 @@ namespace StaffManagementMicroservice.Controllers
     public class StaffPermissionsController : Controller
     {
         private readonly DBService _context;
+        private readonly IStaffService _ss;
 
         private List<StaffPermissions> _staffPermissons;
 
-        public StaffPermissionsController(DBService context)
+        public StaffPermissionsController(DBService context, IStaffService ss)
         {
             _context = context;
+            _ss = ss;
             _staffPermissons = new List<StaffPermissions>();
-            _staffPermissons.Add(new StaffPermissions() { StaffID = -1, Permissions = "Toggle customer purchasing", EmployeeFullName = "Default"} );
+            _staffPermissons.Add(new StaffPermissions() { StaffID = -1, Permissions = "Toggle customer purchasing", EmployeeFullName = "Default"});
             _staffPermissons.Add(new StaffPermissions() { StaffID = -1, Permissions = "View customer invoices", EmployeeFullName = "Default" });
             _staffPermissons.Add(new StaffPermissions() { StaffID = -1, Permissions = "Send customer invoices", EmployeeFullName = "Default" });
             _staffPermissons.Add(new StaffPermissions() { StaffID = -1, Permissions = "Message customers", EmployeeFullName = "Default" });
