@@ -33,9 +33,11 @@ namespace StaffManagementMicroservice.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var staff = _context.GetAllStaff();
-            
-            return View(staff);
+            var allStaff = _context.GetAllStaff();
+            if(allStaff != null)
+                return View(allStaff);
+
+            return NotFound();
         }
 
         public async Task<IActionResult> AddPermissions(int StaffID)
@@ -85,6 +87,15 @@ namespace StaffManagementMicroservice.Controllers
             _context.AddPermission(StaffID,Permissions);
 
             return RedirectToAction("Index");
-        }  
+        }
+
+        [HttpGet("{Controller}/Get/{id}")]
+        public IActionResult Get(int id)
+        {
+            if (_context.GetStaff(id) != null)
+                return new JsonResult(_context.GetStaffAllfPermissions(id));
+
+            return NotFound();
+        }
     }
 }
