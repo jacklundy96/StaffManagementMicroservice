@@ -9,7 +9,7 @@ using Xunit;
 
 namespace StaffmanagementMicroserviceTest
 {
-    class DBServiceTests
+    public class DBServiceTests
     {
         private static DbContextOptions<StaffPermContext> options;
 
@@ -18,16 +18,21 @@ namespace StaffmanagementMicroserviceTest
             options = new DbContextOptionsBuilder<StaffPermContext>()
                 .UseInMemoryDatabase(databaseName: "In memory Test database")
                 .Options;
-
         }
 
-        public void GetStaffAllfPermissions_ValidCall(int staffID)
+        [Fact]
+        public void GetStaffAllfPermissions_ValidCall()
         {
             using (var context = new StaffPermContext(options))
             {
                 //Arrange
                 var _dbs = new DBService(context);
-
+                _dbs.SaveStaff(new StaffPermissions()
+                {
+                    EmployeeFullName = "Mark Corrigan",
+                    Permissions = "Can View customer details",
+                    StaffID = 1
+                });
                 //Act
                 var permissions = _dbs.GetStaffAllfPermissions(1);
                 //Assert 
@@ -35,8 +40,8 @@ namespace StaffmanagementMicroserviceTest
             }
         }
 
-
-        public void GetStaffAllfPermissions_OutOfBoundsIndex(int staffID)
+        [Fact]
+        public void GetStaffAllfPermissions_OutOfBoundsIndex()
         {
             using (var context = new StaffPermContext(options))
             {
@@ -46,11 +51,12 @@ namespace StaffmanagementMicroserviceTest
                 //Act
                 var permissions = _dbs.GetStaffAllfPermissions(-1);
                 //Assert 
-                Assert.NotNull(permissions);
+                Assert.Empty(permissions);
             }
         }
 
-        public void GetStaffAllfPermissions_LimitTest(int staffID)
+        [Fact]
+        public void GetStaffAllfPermissions_LimitTest()
         {
             using (var context = new StaffPermContext(options))
             {
@@ -60,7 +66,7 @@ namespace StaffmanagementMicroserviceTest
                 //Act
                 var permissions = _dbs.GetStaffAllfPermissions(0);
                 //Assert 
-                Assert.NotNull(permissions);
+                Assert.Empty(permissions);
             }
         }
 
