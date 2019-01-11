@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffManagementMicroservice", "StaffManagementMicroservice\StaffManagementMicroservice.csproj", "{5C76BBE9-D6E2-4FC0-9EB5-EC1D254511DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaffManagementMicroservice", "StaffManagementMicroservice\StaffManagementMicroservice.csproj", "{5C76BBE9-D6E2-4FC0-9EB5-EC1D254511DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffmanagementMicroserviceTest", "StaffmanagementMicroserviceTest\StaffmanagementMicroserviceTest.csproj", "{A0C80BEC-757D-403A-8654-2B403D6615A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{5C76BBE9-D6E2-4FC0-9EB5-EC1D254511DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C76BBE9-D6E2-4FC0-9EB5-EC1D254511DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C76BBE9-D6E2-4FC0-9EB5-EC1D254511DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0C80BEC-757D-403A-8654-2B403D6615A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C80BEC-757D-403A-8654-2B403D6615A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C80BEC-757D-403A-8654-2B403D6615A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C80BEC-757D-403A-8654-2B403D6615A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -47,7 +47,6 @@ namespace StaffManagementMicroservice.Controllers
             var AvailablePermissons = _staffPermissons;
             var staffPerms = _context.GetStaffAllfPermissions(StaffID);
 
-
             foreach (var perm in staffPerms)
                 AvailablePermissons = AvailablePermissons.Where(x => !x.Permissions.Equals(perm.Permissions)).ToList();
 

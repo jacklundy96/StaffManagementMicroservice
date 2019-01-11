@@ -24,6 +24,9 @@ namespace StaffManagementMicroservice.Services
 
         public async Task<StaffPermissions> GetCustomerDetailsAsync(int StaffID)
         {
+            if (StaffID <= 0)
+                return null;
+
             HttpResponseMessage response = await _client.GetAsync("http://www.ThamcoCustomers.com/StaffDetails/" + StaffID);
             string responseBody = await response.Content.ReadAsStringAsync();
             StaffPermissions staff = ParseJsonIntoStaffAsync(responseBody);
