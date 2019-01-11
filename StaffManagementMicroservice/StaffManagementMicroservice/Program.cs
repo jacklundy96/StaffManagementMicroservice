@@ -14,9 +14,12 @@ namespace StaffManagementMicroservice
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
-            var host = CreateWebHostBuilder(args);
+            var host = BuildWebHost(args);
+            //Testing changes
+
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
@@ -25,11 +28,12 @@ namespace StaffManagementMicroservice
                 DBInitializer.Initialize(context);
             }
 
-            CreateWebHostBuilder(args).Run();
+            BuildWebHost(args).Run();
+
+
+            host.Run();
         }
 
-        public static IWebHost CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>().Build();
+        public static IWebHost BuildWebHost(string[] args) => WebHost.CreateDefaultBuilder(args).UseStartup<Startup>().Build();
     }
 }
